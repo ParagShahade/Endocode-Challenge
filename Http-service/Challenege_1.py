@@ -20,7 +20,8 @@ app = Flask(__name__)
 def helloworld():
     return "Hello Stranger"
 
-#Cample splitting 
+#Cample splitting
+@app.route("/helloworld?name=AlfredENeumann")
 def camel_split(split):
     same = finditer('.+?(?:(?<=[a-z])(?=[A-Z])|(?<=[A-Z])(?=[A-Z][a-z])|$)', split) #it is similar to splitting:
     return [a.group(0) for a in same]
