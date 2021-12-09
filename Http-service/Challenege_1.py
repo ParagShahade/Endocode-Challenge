@@ -1,5 +1,10 @@
 from http import server
 from http.server import HTTPServer,BaseHTTPRequestHandler
+from flask import Flask,Response
+from flask import request
+from flask import jsonify
+from flask.wrappers import Response
+
 
 class handlerfunc(BaseHTTPRequestHandler):
     def do_GET(self):
@@ -7,6 +12,13 @@ class handlerfunc(BaseHTTPRequestHandler):
         self.send_header("Content_type","text/html")
         self.end_headers()
         self.wfile.write('hello world')
+
+app = Flask(__name__)
+#End point helloworld to stranger
+@app.route("/helloworld")
+def helloworld():
+    return "Hello Stranger"
+
 def main():
     PORT = 8080
     server = HTTPServer(('',PORT),handlerfunc)
@@ -15,4 +27,4 @@ def main():
 
 if __name__ == '__main__':
     main()
-
+    app.run(debug=True)
