@@ -1,5 +1,6 @@
 from http import server
 from http.server import HTTPServer,BaseHTTPRequestHandler
+from re import finditer
 from flask import Flask,Response
 from flask import request
 from flask import jsonify
@@ -18,6 +19,12 @@ app = Flask(__name__)
 @app.route("/helloworld")
 def helloworld():
     return "Hello Stranger"
+
+#Cample splitting 
+def camel_split(split):
+    same = finditer('.+?(?:(?<=[a-z])(?=[A-Z])|(?<=[A-Z])(?=[A-Z][a-z])|$)', split) #it is similar to splitting:
+    return [a.group(0) for a in same]
+
 
 def main():
     PORT = 8080
