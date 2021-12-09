@@ -5,6 +5,7 @@ from flask import Flask,Response
 from flask import request
 from flask import jsonify
 from flask.wrappers import Response
+import subprocess
 
 
 class handlerfunc(BaseHTTPRequestHandler):
@@ -26,6 +27,12 @@ def camel_split(split):
     same = finditer('.+?(?:(?<=[a-z])(?=[A-Z])|(?<=[A-Z])(?=[A-Z][a-z])|$)', split) #it is similar to splitting:
     return [a.group(0) for a in same]
 
+#version
+@app.route("/version")
+def get_git_hash():
+    hash_name = subprocess.check_output(['git', 'rev-parse', 'HEAD'])
+    hash_name = str(hash_name, "utf-8").strip()
+    return hash_name
 
 def main():
     PORT = 8080
