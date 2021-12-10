@@ -1,0 +1,19 @@
+# syntax=docker/dockerfile:1
+
+FROM python:3.8-slim-buster
+
+WORKDIR /Http-service
+
+ENV FLASK_APP=challenege_1.py
+
+ENV FLASK_RUN_HOST=0.0.0.0
+
+COPY challenge.txt challenge.txt
+
+RUN pip install -r challenge.txt
+
+EXPOSE 8080
+
+COPY . .
+
+CMD ["python3","flask", "run"]
