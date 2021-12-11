@@ -12,7 +12,7 @@ image:
 
 imagePullSecrets: []
 nameOverride: "challenge"
-fullnameOverride: "httpservice"
+fullnameOverride: "http"
 
 serviceAccount:
   # Specifies whether a service account should be created
