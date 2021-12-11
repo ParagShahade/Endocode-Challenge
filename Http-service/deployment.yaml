@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: challenge
+spec:
+  selector:
+    matchLabels:
+      app: httpservice
+  replicas: 1 
+  template:
+    metadata:
+      labels:
+        app: httpservice
+    spec:
+      containers:
+      - name: httpservice
+        image: parag3108/challenege_endo:level_1
+      terminationGracePeriodSeconds: 30
+        ports:
+        - containerPort: 80
+
