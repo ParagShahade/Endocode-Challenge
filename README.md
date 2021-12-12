@@ -13,5 +13,11 @@ Web Server Gateway Interface for web servers to forward requests to web applicat
 11)Build dockerfile
 12)Create workflow in github
 13)Login credentails for dockerhub and token to access or grant it
-13)Push the docker image in Dockerhub repository 
-
+14)Push the docker image in Dockerhub repository 
+15)Install kube8
+16)Install minikube
+17)start minikube and go to dashboard
+18)create deployement file (yaml file)
+19)verify and status of pods 
+20)Install helm chart and create chart
+21)Verified status.
